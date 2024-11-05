@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* テーブルのスタイル */
+        table {
+            border: 3px solid navy; 
+            border-collapse: collapse;
+            width: 80%; 
+            margin: 0 auto; 
+        }
+        td, th {
+            border: 1px solid navy;
+        }
+        th {
+            font-size: 9pt;
+        }
+
+        /* 列の幅を均等に設定 */
+        .equal-width {
+            width: 85px;
+            text-align: center;
+        }
+
+        /* ページ全体の背景と基本フォント設定 */
+        body {
+                background: linear-gradient(to right, #FFF9C4, #E8F5E9);
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+
+        /* タイトルのスタイル */
+        #title{
+            color: navy;
+            font-size: 13pt;
+            border: 3px solid midnightblue;
+            width: 300px;
+            padding: 1px;
+            background-color: lightsteelblue;
+            margin: 0 auto;
+        }
+
+        /* ヘッダー行のテキスト色を青に設定 */
+        .tr_header{
+            color: blue;
+        }
+
+        /* ボタンのスタイル */
+        [type="button"]{
+            width: 100px; 
+            height: 30px;
+            background-color: grey; 
+            color: white;
+            border: none; 
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* ボタンにホバーしたときのスタイル */
+        [type="button"]:hover{
+            background-color: navy;
+        }
+
+        /* ボタンをクリックしたときのスタイル */
+        [type="button"]:active{
+            background-color: skyblue;
+        }
+
+        /* セル内のテキストを中央揃えに設定 */
+        .val{
+            text-align: center;
+            vertical-align: middle; 
+        }
+
+        /* 虹色アニメーションテキスト */
+        .rainbow-text {
+            font-size: 48px;
+            font-weight: bold;
+            animation: rainbow 3s infinite;
+        }
+
+        /* keyframesを使用して、虹色が順次変わるように設定 */
+        @keyframes rainbow {
+            20% { color: #A52A2A; }
+            45% { color: green; }
+            70% { color: navy; }
+            90% { color: blue; }
+            100% { color: indigo; }
+        }
+
+        
+
+
+        /* 特定のボタンのスタイルを設定 */
+        #sendMessageButton {
+            width: 120px; 
+            height: 40px;
+            background-color: #000080;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out; 
+        }
+
+        /* ボタンにマウスを乗せた時のスタイル */
+        #sendMessageButton:hover {
+            background-color: #00004D;
+        }
+
+        /* ボタンをクリックした時のスタイル */
+        #sendMessageButton:active {
+            background-color: #1E3A5F;
+            transform: scale(0.95); 
+        }
+
+
+        /* テーブルセル内の中央揃え */
+        td {
+            text-align: center; 
+            vertical-align: middle; 
+        }
+    </style>
+</head>
+<body>
+    <!-- タイトル部分 -->
+    <div id="title"> <h1 align=center>掲示板</h1></div><br>
+    <!-- 入力フィールド群 -->
+    <div class="val">
+        <input id="var1" type="text" placeholder="purpose tag">
+        <input id="var2" type="text" placeholder="Message">
+        <input id="var3" type="text" placeholder="mean">
+        <input id="var4" type="text" placeholder="meanAddPhrase">
+        <input id="var5" type="text" placeholder="meanAddMor">
+        <input id="var6" type="text" placeholder="meanAddAll">
+        <input id="var7" type="text" placeholder="runningTime">
+        <input id="var8" type="text" placeholder="yes Value">
+        <input id="var9" type="text" placeholder="no Value"><br><br>    
+        <input id="push" type="button" value="登録">
+        <button id="reload" type="button">リロード</button><br>
+    </div>
+
+    <!-- テキストに虹色アニメーションを適用 -->
+    <p class="rainbow-text" align="center" style="font-size: 12pt; color: gray;">*現在稼働中です。 直接ボタンをクリックして内容を記入してください。</p>
+
+    <!-- 表1個人データ照会 -->
+    <table id="dataTable1" border='1' align="center" bgcolor="mintcream">
+            <tr align="center" height="40">
+                <td colspan='13' style="font-size: 18pt" bgcolor="mistyrose">個人データ照会</td>
+            </tr>
+            <tr class="tr_header" style="font-size: 10pt">
+                <th>Message ID</th>
+                <th>purpose</th>
+                <th>Message</th>
+                <th class="equal-width">mean</th>
+                <th class="equal-width">meanAddPhrase</th>
+                <th class="equal-width">meanAddMor</th>
+                <th class="equal-width">meanAddAll</th>
+                <th>runningTime</th>
+                <th>Send Date</th>
+                <th width="200px">Receive Date</th>
+                <th>Yes Value</th>
+                <th>No Value</th>
+                <th>Yes or No</th>
+            </tr>
+            <!-- 表のデータは後でJavaScriptで追加 -->
+            <tr>
+                <td height="20px"></td>
+                <td></td>
+                <td></td>
+                <td class="equal-width"></td>
+                <td class="equal-width"></td>
+                <td class="equal-width"></td>
+                <td class="equal-width"></td>
+                <td></td>
+                <td></td>
+                <td align="center">
+                    <button id="sendMessageButton" class="center-button">メッセージ送り</button>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td height="20px"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td align="center"><p id="timeDisplay"></p></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+    </table><br>
+
+    <!-- 表2チームデータ照会 -->
+    <div class="part2" id="teamlist">
+        <table id="dataTable2" border='1' align="center" bgcolor="mintcream">
+            <tr align="center" height="40">
+                <td colspan='2' width="600px" style="font-size: 18pt" bgcolor="mistyrose">2チームデータ照会</td>
+            </tr>
+            <tr class="tr_header" style="font-size: 10pt">
+                <th width="90px">Message ID</th>
+                <th>Message</th>
+            </tr>
+            <td width="90px" height="20px"></td>
+            <td></td>
+        </table><br>
+    </div>
+
+    <!-- 表3全データ照会 -->
+    <div class="part3" id="totallist">
+        <table id="dataTable3" border='1' align="center" bgcolor="mintcream">
+            <tr align="center" height="40">
+                <td colspan='2' width="600px" style="font-size: 18pt" bgcolor="mistyrose">全データ照会</td>
+            </tr>
+            <tr class="tr_header" style="font-size: 10pt">
+                <th width="90px">Message ID</th>
+                <th>Message</th>
+            </tr>
+            <td width="90px" height="20px"></td>
+            <td></td>
+        </table>
+    </div>
+    <!-- JavaScriptファイルを読み込み -->
+    <script src="javaAPI.js"></script>
+</body>
+</html>

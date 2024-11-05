@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <!-- ブラウザにHTMLドキュメントがUTF-8エンコーディングを使用していることを通知、この設定で全ての韓国語が正常に表示 -->
+    <title></title>
+</head>
+<style>
+     body {
+            background: linear-gradient(to right, #FFF9C4, #E8F5E9);
+        }
+
+    /* ジェホボタンのスタイルを設定 */
+    #navigate {
+            font-weight: bold;
+            color: navy;
+            font-size: 18px;
+        }
+
+    /* その他のボタンのテキストを薄いグレーに設定 */
+    .team2:not(#navigate), .team3 {
+            color: #D3D3D3;
+        }
+
+    /* team2 クラスのスタイル設定 */
+    .team2{
+    width:100px;
+    height:50px;
+    border:10px solid #00008C;
+    border-radius:10px;
+    background:#fff;
+    font-size: 14px;
+    cursor: pointer;
+    }
+    
+    /* team2 クラスのホバー効果 */
+    .team2:hover{
+    border-image:linear-gradient(#0064FF,#91B9F5);
+    border-image-slice: 1;
+    /* border-image-sliceプロパティは、枠線イメージが該当要素の枠線にどのように配置するかを定義。
+    値が1の場合、画像全体が枠線として使用 */
+    }
+    /* :hoverはその要素にマウスが乗った時に適用されるスタイル。 
+    クリックする前にカーソルがどこにあるかを示すために追加 */
+
+    /* team3 クラスのスタイル設定 */
+    .team3{
+    width:100px;
+    height:50px;
+    border:10px solid #00008C;
+    border-radius:10px;
+    background:#fff;
+    font-size: 14px;
+    cursor: pointer;
+    }
+    
+    /* team3 クラスのホバー効果 */
+    .team3:hover{
+    border-image:linear-gradient(#0064FF,#91B9F5);
+    border-image-slice: 1;
+    }
+
+    /* グリッドレイアウトのコンテナ設定 */
+    .container {
+    display: grid;
+    /* CSSグリッドコンテナとして設定 */
+    /* グリッドレイアウトを使用すると、要素を行と列に整列可能 */
+    width: 500px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* グリッドコンテナを4つの同じ幅の列に分割する。
+    各列が1frで、同じ割合でスペースを占有。frは「fraction」（割合）の略で、残りスペースの割合を表す */
+    gap: 3px;
+    }
+    </style>
+    
+<body>
+    <!-- ページの上部に "Top page" というタイトルを中央揃えで表示 -->
+    <br><br><h1 align="center">Top page</h1><br><br><br><br><br><br>
+    
+    <!-- テーブル外枠の線幅を5pxに設定し、画面の中央に配置 -->
+    <table border='5' style="margin-left:auto; margin-right:auto;">
+        <!-- 名前ボックス内のテキストを中央揃え -->
+        <tr align="center" height="40">
+            <!-- 名前ボックス内のテキストサイズを設定 -->
+            <td style="font-size: 18pt">
+            <!-- グリッドコンテナを使用して要素を並べ -->
+                <div class="container">
+                <button class="team2">グァンシ</button>
+                <button class="team2">ジョンホ</button>
+                <button class="team2" id="navigate">ジェホ</button>
+                <button class="team2">デソン</button>
+                <button class="team2">サンギュ</button>
+                <button class="team2">セリョン</button>
+                <!-- team2とteam3クラスを分けて設定し、チーム単位の変更がしやすいようにする -->
+                <button class="team3">グァンジ</button>
+                <button class="team3">ジフン</button>
+                <button class="team3">サンファ</button>
+                <button class="team3">ジュンク</button>
+                <button class="team3">ヘイン</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <script src="webtransition.js"></script>
+</body>
+</html>
